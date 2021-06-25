@@ -1,0 +1,53 @@
+/* Index */
+
+body {
+    overflow: hidden; /* Hide scrollbars */
+  }
+
+#landing {
+    height: 100vh;
+    background-color:#FEF9FF;
+}
+
+.landingimg {
+    height: 40px;
+}
+
+#login {
+    display: block;
+}
+
+#signup {
+    display: none;
+}
+
+.submit {
+    background-color:#736CED;
+    border: none;
+    color: white;
+    padding: 5px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    border-radius: 20px;
+  }
+
+.title {
+color: #9F9FED;
+font-weight: 900;
+font-size: 100px;
+}
+
+.d-text {
+color: #9F9FED;
+font-weight: 900;
+
+}
+
+.l-text {
+color: #736CED;
+font-weight: 500;
+}
+
