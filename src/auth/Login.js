@@ -2,8 +2,10 @@ import React, { useState } from 'react'
 import { Form, Button, Container } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom'
 import { db, auth } from '../firebase/config.js'
+import './AuthStyle.css'
 
-export default function Login() {
+export default function Login(props) {
+    const clickHandler = props.clickHandler
     const initialState = {
         email: "",
         password: ""
@@ -48,33 +50,37 @@ export default function Login() {
     }
 
     return (
-        <Container>
+        <div>
+            <h1 className="text-center my-5">Login</h1>
+            <Container className="logcard h-50 w-50 d-flex flex-column align-items-center justify-content-evenly px-5 mb-5">
 
-            <Form.Group controlId="userEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                    type="email"
-                    name="email"
-                    placeholder="Enter email"
-                    value={userInfo.email}
-                    onChange={handleOnChange} />
-            </Form.Group>
+                <Form.Group controlId="userEmail">
+                    <Form.Label className="labels">Email</Form.Label>
+                    <Form.Control
+                        type="email"
+                        name="email"
+                        placeholder="Enter email"
+                        value={userInfo.email}
+                        onChange={handleOnChange} />
+                </Form.Group>
 
-            <Form.Group controlId="password">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                    type="password"
-                    name="password"
-                    placeholder="Password"
-                    value={userInfo.password}
-                    onChange={handleOnChange} />
-            </Form.Group>
+                <Form.Group controlId="password">
+                    <Form.Label className="labels">Password</Form.Label>
+                    <Form.Control
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={userInfo.password}
+                        onChange={handleOnChange} />
+                </Form.Group>
 
-            <Button variant="primary" onClick={() => onLogin()} >
-                Submit
-            </Button>
+                <Button className="submit px-5" onClick={() => onLogin()} >
+                    Submit
+                </Button>
 
-        </Container>
+                <p onClick={() => clickHandler("toSignup")} className="clickhandler" >Don't have an account?  <span className="ps-2"> Register</span> </p>
 
+            </Container>
+        </div>
     )
 }

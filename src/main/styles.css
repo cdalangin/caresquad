@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+h1 {
+    font-size: 45px;
+    color: #4873A6
+}
+
+h2 {
+font-family: ABeeZee, sans-serif;
+font-style: italic;
+font-size: 36px;
+line-height: 43px;
+display: flex;
+align-items: center;
+
+color: #22B2AE;
+}
+
+p {
+
+font-family: Average;
+font-size: 20px;
+line-height: 150%;
+/* or 36px */
+display: flex;
+align-items: center;
+text-align: center;
+
+color: #524364;
+
+}
+.nav {
+    background-color: #4873A6;
+    color: white;
+}
+
+.navtext {
+    text-decoration: none;
+    color: white;
+}
+
+.body {
+    background-image: linear-gradient(#D5CDDE, #B0C7E2);
+}
+
+.hero {
+    min-height: 100vh
+}
+
+.takequiz {
+    border-radius: 30px 30px 0;
+    background-color: #22B2AE;
+    border: none;
+}
+
+.steps {
+    min-height: 100vh;
+}
+
+.stepblock {
+    width: 50vw;
+}
+
+.stepnum {
+    /* padding: 30px; */
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    color: black;
+}

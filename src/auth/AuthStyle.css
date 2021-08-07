@@ -1,0 +1,39 @@
+.body {
+    min-height: 100vh;
+    background-image: linear-gradient(#D5CDDE, #B0C7E2);
+}
+.logcard {
+    background-color: white;
+    min-height: 50vh;
+    width: 50vw;
+    border-radius: 20px;
+}
+
+.signcard {
+    background-color: white;
+    min-height: 75vh;
+    width: 50vw;
+    border-radius: 20px;
+}
+
+.labels {
+    font-family: ABeeZee, sans-serif;
+    color: #22B2AE;
+    }
+
+.submit {
+    border-radius: 30px;
+    background-color: #22B2AE;
+    border: none;
+}
+
+.clickhandler {
+    font-family: ABeeZee, sans-serif;
+    font-size: 15px;
+    color: #838383;
+}
+
+.clickhandler > span {
+    color: #22B2AE;
+    cursor: pointer;
+}
