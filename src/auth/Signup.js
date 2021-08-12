@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Form, Button, Container, Row } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom'
+import { AuthContext } from '../AuthContext.js';
 import { db, auth } from '../firebase/config.js'
 
 export default function Signup(props) {
+    const { register } = useContext(AuthContext)
     const clickHandler = props.clickHandler
     const initialState = {
         fullName: "",
@@ -22,37 +24,43 @@ export default function Signup(props) {
 
     // TODO: Maybe do async somewhere so that it loads to test immediately
 
-    const register = () => {
+    const onRegister = () => {
         const userEmail = userInfo.email
         const userName = userInfo.fullName
+        const password = userInfo.password
+        const confirmPassword = userInfo.confirmPassword
 
-        if (userInfo.password !== userInfo.confirmPassword) {
-            alert("Passwords don't match")
-            return
-        }
-        else {
-            auth.createUserWithEmailAndPassword(userEmail, userInfo.password)
-                .then((res) => {
-                    const uid = res.user.uid
-                    const data = {
-                        id: uid,
-                        userEmail,
-                        userName
-                    };
+        register(userName, userEmail, password, confirmPassword)
+        // history.push('/test')
 
-                    const usersRef = db.collection('users')
-                    usersRef
-                        .doc(uid)
-                        .set(data)
-                        .then(() => history.push('/test'))
-                        .catch((err) => {
-                            alert(err)
-                        });
-                })
-                .catch((err) => {
-                    alert(err)
-                })
-        }
+        // if (userInfo.password !== userInfo.confirmPassword) {
+        //     alert("Passwords don't match")
+        //     return
+        // }
+        // else {
+
+        // auth.createUserWithEmailAndPassword(userEmail, userInfo.password)
+        //     .then((res) => {
+        //         const uid = res.user.uid
+        //         const data = {
+        //             id: uid,
+        //             userEmail,
+        //             userName
+        //         };
+
+        //         const usersRef = db.collection('users')
+        //         usersRef
+        //             .doc(uid)
+        //             .set(data)
+        //             .then(() => history.push('/test'))
+        //             .catch((err) => {
+        //                 alert(err)
+        //             });
+        //     })
+        //     .catch((err) => {
+        //         alert(err)
+        //     })
+        // }
 
     }
 
@@ -96,7 +104,7 @@ export default function Signup(props) {
                         value={userInfo.confirmPassword}
                         onChange={handleOnChange} />
                 </Form.Group>
-                <Button className="submit px-5" onClick={() => register()} >
+                <Button className="submit px-5" onClick={() => onRegister()} >
                     Submit
                 </Button>
 

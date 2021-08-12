@@ -7,6 +7,7 @@
     min-height: 50vh;
     width: 50vw;
     border-radius: 20px;
+    box-shadow: 10px 10px #4873A6;
 }
 
 .signcard {
@@ -14,6 +15,7 @@
     min-height: 75vh;
     width: 50vw;
     border-radius: 20px;
+    box-shadow: 10px 10px #4873A6;
 }
 
 .labels {
