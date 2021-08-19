@@ -31,11 +31,13 @@ export default function MainSite() {
     ]
 
     return (
-        <div className="body vw-100">
+        <div className="body">
             <Navigation />
             <div className="hero d-flex flex-column align-items-center justify-content-center px-5">
                 <h1 variant="danger" className="mb-5">Welcome to Pursuit</h1>
-                <p className="mb-5"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+                <p className="mb-5">Take our easy quiz to get you thinking about your interests and identify what you look for in
+                    a job so that we can match you with the one that works best for you!
+                </p>
                 <div className="takequiz py-4 px-4">
                     <Link to="/test" className="quizlink">Take the Quiz</Link>
                 </div>

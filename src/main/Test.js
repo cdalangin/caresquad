@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 // import { db, auth } from '../firebase/config.js'
 import { Container, Row, Form, Button } from "react-bootstrap";
 import Navigation from '../shared/Navigation'
 import { questions } from "./Questions"
+import { AuthContext } from '../AuthContext';
 
 export default function Test() {
+    const history = useHistory();
     const initialState = {
         "q1": "",
         "q2": "",
@@ -16,7 +18,6 @@ export default function Test() {
     }
     const [selected, setSelected] = useState(initialState)
     const select = []
-
 
     // TODO: Optimize this
     const onSelect = (key, choice) => {
@@ -58,26 +59,7 @@ export default function Test() {
                                         return (
                                             <div>
                                                 <div className="choiceButton mb-2 ps-3 py-1" onClick={() => onSelect(question.key, choice)} >{choice}</div>
-                                                {/* <div className="mb-3">
-                                                    <Form.Check
-                                                        label="1"
-                                                        name="group1"
-                                                        type="radio"
-                                                        id={`inline-radio-1`}
-                                                    />
-                                                    <Form.Check
-                                                        label="2"
-                                                        name="group1"
-                                                        type="radio"
-                                                        id={`inline-radio-2`}
-                                                    />
-                                                    <Form.Check
-                                                        disabled
-                                                        label="3 (disabled)"
-                                                        type="radio"
-                                                        id={`inline-radio-3`}
-                                                    />
-                                                </div> */}
+
                                             </div>
                                         )
                                     })
@@ -88,50 +70,10 @@ export default function Test() {
                         })
 
                         }
-                        <Button className="submit px-5 m-5 " onClick={() => { console.log(selected) }} >
-                            Submit
-                        </Button>
-                        {/* <Form.Group controlId="fullName">
-                            <Form.Label className="labels">Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="fullName"
-                                placeholder="Enter name"
-                                value={userInfo.fullName}
-                                onChange={handleOnChange} />
-                        </Form.Group>
-                        <Form.Group controlId="userEmail">
-                            <Form.Label className="labels">Email address</Form.Label>
-                            <Form.Control
-                                type="email"
-                                name="email"
-                                placeholder="Enter email"
-                                value={userInfo.email}
-                                onChange={handleOnChange} />
-                        </Form.Group>
-                        <Form.Group controlId="password">
-                            <Form.Label className="labels">Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                value={userInfo.password}
-                                onChange={handleOnChange} />
-                        </Form.Group>
-                        <Form.Group controlId="confirmPassword">
-                            <Form.Label className="labels">Reenter Password</Form.Label>
-                            <Form.Control
-                                type="password"
-                                name="confirmPassword"
-                                placeholder="Reenter Password"
-                                value={userInfo.confirmPassword}
-                                onChange={handleOnChange} />
-                        </Form.Group>
-                        <Button className="submit px-5" onClick={() => onRegister()} >
+                        <Button className="submit px-5 m-5 " onClick={() => { history.push("/results") }} >
                             Submit
                         </Button>
 
-                        <p onClick={() => clickHandler("toLogin")} className="clickhandler" >Already have an account?  <span className="ps-2"> Login</span> </p> */}
                     </Container>
 
                 </Row>

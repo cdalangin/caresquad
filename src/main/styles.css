@@ -39,6 +39,14 @@ color: #524364;
     color: white;
 }
 
+.applogo {
+    height: 40px;
+}
+
+.logout {
+    cursor: pointer;
+}
+
 .body {
     background-image: linear-gradient(#D5CDDE, #B0C7E2);
 }
@@ -107,4 +115,24 @@ color: #524364;
 .choiceButton:hover {
     background-color: #22B2AE;
     color: white;
+}
+
+/* Results Page */
+
+.resultsection {
+    height: 60vh
+}
+
+.resultimg {
+    height: 30%;
+}
+
+.resultlabels {
+    font-family: ABeeZee, sans-serif;
+    color: #22B2AE;
+    font-size: 40px;
+}
+
+.resultsbuttons {
+    height: 20vh;
 }

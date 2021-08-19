@@ -8,7 +8,18 @@ export const AuthContext = createContext("");
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(true);
     const history = useHistory();
+
+    useEffect(() => {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+            setUser(user)
+            setLoading(false)
+
+        })
+
+        return unsubscribe
+    }, [])
 
     return (
         <AuthContext.Provider
@@ -17,7 +28,7 @@ export const AuthProvider = ({ children }) => {
                 setUser,
                 login: (email, password) => {
                     auth.signInWithEmailAndPassword(email, password)
-                    history.push("/feed")
+                    // history.push("/feed")
                 },
                 register: (fullName, email, password, confirmPassword) => {
                     if (password !== confirmPassword) {
@@ -56,7 +67,7 @@ export const AuthProvider = ({ children }) => {
                 },
             }}
         >
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     )
 }

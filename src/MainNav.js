@@ -48,6 +48,9 @@ export default function MainNav() {
                 :
                 (
                     <Switch>
+                        <Route exact path="/results">
+                            <Result />
+                        </Route>
                         <Route path="/test">
                             <Test />
                         </Route>
