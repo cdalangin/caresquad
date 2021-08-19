@@ -47,13 +47,15 @@ export const AuthProvider = ({ children }) => {
                                 usersRef
                                     .doc(uid)
                                     .set(data)
-                                    .then(() => history.push('/test'))
+                                    .then(() => { console.log("ugh") })
                                     .catch((err) => {
                                         alert(err)
+                                        return
                                     });
                             })
                             .catch((error) => {
                                 alert(error)
+                                return
                             })
                     }
                 },

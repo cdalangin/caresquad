@@ -35,8 +35,8 @@ export default function MainSite() {
             <Navigation />
             <div className="hero d-flex flex-column align-items-center justify-content-center px-5">
                 <h1 variant="danger" className="mb-5">Welcome to Pursuit</h1>
-                <p className="mb-5">Take our easy quiz to get you thinking about your interests and identify what you look for in
-                    a job so that we can match you with the one that works best for you!
+                <p className="mb-5">If you have difficulty choosing the right track for your career or need help connecting with people with your field, you are in the right place.
+                    Pursuit not only helps students pick the right career, but also help them network with different people from the field. By taking our career quiz, we will suggest the best career track suitable for you.
                 </p>
                 <div className="takequiz py-4 px-4">
                     <Link to="/test" className="quizlink">Take the Quiz</Link>

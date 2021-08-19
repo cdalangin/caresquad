@@ -32,15 +32,16 @@ export default function Signup(props) {
         const password = userInfo.password
         const confirmPassword = userInfo.confirmPassword
 
-        try {
-            setError("")
-            setLoading(true)
-            await register(userName, userEmail, password, confirmPassword)
-        } catch {
-            setError("Failed to create an account")
-        }
+        await register(userName, userEmail, password, confirmPassword)
+        // try {
+        //     setError("")
+        //     setLoading(true)
+        //     await register(userName, userEmail, password, confirmPassword)
+        // } catch {
+        //     setError("Failed to create an account")
+        // }
 
-        setLoading(false)
+        // setLoading(false)
 
     }
 
@@ -48,7 +49,7 @@ export default function Signup(props) {
         <div>
             <h1 className="text-center my-5">Sign Up</h1>
             <Container className="signcard d-flex flex-column align-items-center justify-content-evenly py-3 px-5  mb-5">
-                <Form onSubmit={onRegister}>
+                <Form >
                     <Form.Group controlId="fullName">
                         <Form.Label className="labels">Name</Form.Label>
                         <Form.Control
@@ -85,10 +86,11 @@ export default function Signup(props) {
                             value={userInfo.confirmPassword}
                             onChange={handleOnChange} />
                     </Form.Group>
-                    <Button disabled={loading} className="submit px-5" type="submit" >
-                        Submit
-                    </Button>
+
                 </Form>
+                <Button onClick={() => onRegister()} className="submit px-5">
+                    Submit
+                </Button>
                 <p onClick={() => clickHandler("toLogin")} className="clickhandler" >Already have an account?  <span className="ps-2"> Login</span> </p>
             </Container>
         </div>
