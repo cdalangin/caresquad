@@ -24,7 +24,7 @@ export default function MainNav() {
             {user ?
                 (
                     <Switch>
-                        <Route exact path="/result">
+                        <Route exact path="/results">
                             <Result />
                         </Route>
                         <Route exact path="/test/:slug">
